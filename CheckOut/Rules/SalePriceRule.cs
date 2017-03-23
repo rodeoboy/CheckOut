@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,10 +17,11 @@ namespace CheckOut.Rules
         public void CalculateDiscount(CartItem item)
         {
             decimal discount = 0.0m;
+            var discountsForItem = _discounts.Where(d => d.ProductId == item.ProductId);
             // Always apply the lowest price
-            if (_discounts.Count() > 0)
+            if (discountsForItem.Count() > 0)
             {
-                discount = item.RegularPrice - _discounts.Min(d => d.DiscountPrice);
+                discount = item.RegularPrice - discountsForItem.Min(d => d.DiscountPrice);
                 if (discount > item.Discount)
                     item.Discount = discount;
             }
