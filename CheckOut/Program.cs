@@ -43,7 +43,7 @@ namespace CheckOut
             catch(Exception ex)
             {
                 //should log the exception for later use
-                Console.WriteLine("Sorry, there was an error. Please try again. Hit any key to close.");
+                Console.WriteLine("Sorry, there was an error. Please try again. Hit enter to close.");
                 Console.Read();
             }
         }
