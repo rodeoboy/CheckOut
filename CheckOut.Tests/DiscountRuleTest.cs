@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CheckOut.Rules;
 using CheckOut.Entities;
@@ -22,6 +22,7 @@ namespace CheckOut.Tests
 
             Assert.AreEqual(1.0m, cartItem.Discount);
         }
+
         [TestMethod]
         public void TestMultipleSalePriceDiscount()
         {
@@ -35,6 +36,21 @@ namespace CheckOut.Tests
 
             //Should return the largest discount off the regular price
             Assert.AreEqual(1.25m, cartItem.Discount);
+        }
+
+        [TestMethod]
+        public void TestNoSalePriceDiscount()
+        {
+            var promotions = new List<ProductDiscount>();
+            promotions.Add(new ProductDiscountBuilder().Build());
+            promotions.Add(new ProductDiscountBuilder().WithDiscountPrice(0.75m).Build());
+            var cartItem = new CartItemBuilder().WithProduct("Banana").WithProductId(2).Build();
+            var rule = new SalePriceRule(promotions);
+
+            rule.CalculateDiscount(cartItem);
+
+            //Should return the largest discount off the regular price
+            Assert.AreEqual(0.00m, cartItem.Discount);
         }
     }
 }
