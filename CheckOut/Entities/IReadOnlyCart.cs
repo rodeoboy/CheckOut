@@ -4,6 +4,7 @@
     {
         decimal Cost { get; }
         decimal Discount { get; }
+        DiscountType DiscountType { get; }
         int ProductId { get; }
         string ProductName { get; }
         int Quantity { get; }

@@ -13,6 +13,7 @@ namespace CheckOut.Entities
         public int Quantity { get; set; }
         public decimal RegularPrice { get; set; }
         public decimal Discount { get; set; }
+        public DiscountType DiscountType { get; set; }
         public decimal Cost
         {
             get { return RegularPrice - Discount; }

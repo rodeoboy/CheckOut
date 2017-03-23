@@ -24,6 +24,7 @@ namespace CheckOut.Rules
                 discount = item.RegularPrice - discountsForItem.Min(d => d.DiscountPrice);
                 if (discount > item.Discount)
                     item.Discount = discount;
+                item.DiscountType = DiscountType.SalePrice;
             }
         }
     }
