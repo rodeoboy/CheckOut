@@ -1,4 +1,4 @@
-﻿using CheckOut.Entities;
+using CheckOut.Entities;
 using CheckOut.Rules;
 using System;
 using System.Collections.Generic;
@@ -38,14 +38,23 @@ namespace CheckOut.Service
                 while ((row = sr.ReadLine()) != null)
                 {
                     var col = row.Split(',');
-                    var product = new Product()
+                    var currentProduct = products.FirstOrDefault(p => p.Name.ToLower() == col[0].Trim().ToLower());
+
+                    if (currentProduct != null)
                     {
-                        Id = id,
-                        Name = col[0],
-                        Price = Convert.ToDecimal(col[1]),
-                    };
-                    products.Add(product);
-                    id++;
+                        currentProduct.Price = Convert.ToDecimal(col[1]);
+                    }
+                    else
+                    {
+                        var product = new Product()
+                        {
+                            Id = id,
+                            Name = col[0],
+                            Price = Convert.ToDecimal(col[1]),
+                        };
+                        products.Add(product);
+                        id++;
+                    }
                 }
             }
         }
@@ -69,10 +78,10 @@ namespace CheckOut.Service
                 {
                     var col = row.Split(',');
                     var type = (DiscountType)Enum.Parse(typeof(DiscountType), col[0]);
-                    int productId = 0;
+                    int? productId = products.FirstOrDefault(p => p.Name.ToLower() == col[3].Trim().ToLower())?.Id;
                     DateTime expiry = DateTime.Now;
                     
-                    if (DateTime.TryParse(col[2], out expiry) && int.TryParse(col[3], out productId))
+                    if (DateTime.TryParse(col[2], out expiry) && productId.HasValue)
                     {
                         var promotion = new ProductDiscount()
                         {
@@ -89,8 +98,9 @@ namespace CheckOut.Service
             }
         }
 
+
         public void CheckoutItems(string path)
-        {   
+        {
             cart = new Cart(promotions);
             using (StreamReader sr = File.OpenText(@path))
             {
