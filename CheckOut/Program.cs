@@ -43,7 +43,8 @@ namespace CheckOut
             catch(Exception ex)
             {
                 //should log the exception for later use
-                Console.WriteLine("Sorry, there was an error. Please try again.");
+                Console.WriteLine("Sorry, there was an error. Please try again. Hit any key to close.");
+                Console.Read();
             }
         }
         static void PrintReciept(IHaveItems cart)
