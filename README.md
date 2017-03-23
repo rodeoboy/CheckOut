@@ -11,9 +11,9 @@ Loading Product Catalog
 
 Loading Product Promotions
 
-1. Create a text file with product promotion items. One item per line with promotion type (currently only SalePrice is supported), the sale price, expiry date (in dd/mm/yyyy format) and product id seperated by comma. For example:
-  SalePrice, 1.00, 11/11/2017, 1
-  SalePrice, 1.00, 11/11/2017, 2
+1. Create a text file with product promotion items. One item per line with promotion type (currently only SalePrice is supported), the sale price, expiry date (in dd/mm/yyyy format) and product name seperated by comma. For example:
+  SalePrice, 1.00, 11/11/2017, Apple
+  SalePrice, 1.00, 11/11/2017, Banana
 2. Reun the application and select "Add promotions" from the menu.
 3. Type in the path to the file created above.
 
