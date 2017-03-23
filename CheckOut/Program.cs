@@ -65,7 +65,7 @@ namespace CheckOut
                 grandTotal += item.Total;
                 Console.WriteLine(lineFormat, item.Quantity, item.ProductName, item.Discount.ToString(currencyFormat), item.DiscountType == DiscountType.None? string.Empty: item.DiscountType.ToString(), item.RegularPrice.ToString(currencyFormat), item.Total.ToString(currencyFormat));
             }
-            Console.WriteLine("{0,80} {1,10}", "Grand Total:", grandTotal.ToString(currencyFormat));
+            Console.WriteLine("{0,81} {1,10}", "Grand Total:", grandTotal.ToString(currencyFormat));
         }
 
         static string PromptForFile()
