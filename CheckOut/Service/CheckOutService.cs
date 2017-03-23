@@ -87,12 +87,11 @@ namespace CheckOut.Service
                     }
                 }
             }
-            cart = new Cart(promotions);
         }
 
-
         public void CheckoutItems(string path)
-        {
+        {   
+            cart = new Cart(promotions);
             using (StreamReader sr = File.OpenText(@path))
             {
                 string itemName = string.Empty;
