@@ -10,7 +10,6 @@ namespace CheckOut.Entities
     public class Product
     {
         public int Id { get; set; }
-        [Index(IsUnique = true)]
         public string Name { get; set; }
         public decimal Price { get; set; }
     }
