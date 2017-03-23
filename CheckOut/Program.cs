@@ -1,4 +1,4 @@
-﻿using CheckOut.Entities;
+using CheckOut.Entities;
 using CheckOut.Service;
 using System;
 using System.IO;
