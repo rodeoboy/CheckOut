@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckOut.Tests", "CheckOut.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestFiles", "TestFiles", "{D978FBE9-B090-406B-B0BD-29919FF35F43}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\..\..\temp\CheckOut.txt = ..\..\..\..\..\..\temp\CheckOut.txt
+		CheckOut.txt = CheckOut.txt
 		ProductPromotions.txt = ProductPromotions.txt
 		Products.txt = Products.txt
 	EndProjectSection
