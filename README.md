@@ -36,3 +36,11 @@ Check Out Cart
   Banana
 2. Reun the application and select "Check out items" from the menu.
 3. Type in the path to the file created above.
+
+# Sample Files
+There are three sample file in the root of the repository:
+1. CheckOut.txt - a sample check out file
+2. Products.txt - a sample product catalog upload file
+3. ProductPromotions.txt - a sample promotions upload file
+
+In debug mode each file can be used by relative path. For example: "../../../CheckOut.txt"
