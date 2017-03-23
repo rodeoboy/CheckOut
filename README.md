@@ -1,12 +1,22 @@
 # CheckOut
 
+# Limitations
+1. Currently there is no validation on the file uploads. If file format is not valid an error message is displayed to the user. 
+2. Products not found in promotion upload or check out are not added
+
+# Design Choices
+1. Discount calculation is done using a rule engine pattern to allow extending the type of calculations performed on item. Currently only Sale Price is implemented.
+2. Client, domain and service classes should be implemented in their own components to better inforce encapsulation.
+
+# User Documentation
+
 Loading Product Catalog
 
 1. Create a text file with product items. One item per line with product name the price seperated by comma. For example:
   Apple, 2.00
-  Orange 1.50
-  Banana 1.00
-2. Reun the application and select "Add products" from the menu.
+  Orange, 1.50
+  Banana, 1.00
+2. Run the application and select "Add products" from the menu.
 3. Type in the path to the file created above.
 
 Loading Product Promotions
@@ -16,6 +26,7 @@ Loading Product Promotions
   SalePrice, 1.00, 11/11/2017, Banana
 2. Reun the application and select "Add promotions" from the menu.
 3. Type in the path to the file created above.
+NOTE: Promotion products not found in the product catalog will not be added.
 
 Check Out Cart
 
